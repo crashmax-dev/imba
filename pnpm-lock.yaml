@@ -1,14 +1,20 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@crashmax/json-format-highlight': ^1.1.0
   express: ^4.17.1
   imba: 2.0.0-alpha.219
 
 dependencies:
+  '@crashmax/json-format-highlight': 1.1.0
   express: 4.18.1
   imba: 2.0.0-alpha.219
 
 packages:
+
+  /@crashmax/json-format-highlight/1.1.0:
+    resolution: {integrity: sha512-t74op3IX4fFlsshLkqlb4q8nAoXtd6den/LZ+Zl06foiCaSx+1v3tGKXZFCaoY9Edpxaco9d2ddHMUV7C6LSZg==}
+    dev: false
 
   /@esbuild/linux-loong64/0.15.6:
     resolution: {integrity: sha512-hqmVU2mUjH6J2ZivHphJ/Pdse2ZD+uGCHK0uvsiLDk/JnSedEVj77CiVUnbMKuU4tih1TZZL8tG9DExQg/GZsw==}

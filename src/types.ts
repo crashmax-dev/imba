@@ -4,3 +4,8 @@ export interface ITodo {
   title: string
   completed: boolean
 }
+
+export enum Routes {
+  home = '/home',
+  about = '/about'
+}

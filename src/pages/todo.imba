@@ -1,6 +1,6 @@
-import type { ITodo } from './types'
+import type { ITodo } from '../types'
 
-export tag Todo
+tag todo-page
 	prop page = 1
 	prop todos\ITodo[] = []
 
@@ -11,6 +11,9 @@ export tag Todo
 
 	def deleteTodo(id\number)
 		todos = todos.filter do(todo) todo.id != id
+
+	def unmount
+		todos.length = 0
 
 	def render
 		<self>
