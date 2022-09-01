@@ -16,6 +16,7 @@ export tag App
 				<a route-to="/syntax"> "Syntax"
 				<a route-to="/code"> "Code"
 				<a route-to="/notes"> "Notes"
+				<a route-to="/fireworks"> "Fireworks"
 			<section>
 				<home-page route="/">
 				<about-page route="/about">
@@ -23,3 +24,4 @@ export tag App
 				<syntax-page route="/syntax">
 				<code-page route="/code">
 				<notes-page route="/notes">
+				<fireworks-page route="/fireworks">
