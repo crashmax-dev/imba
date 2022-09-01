@@ -15,9 +15,11 @@ export tag App
 				<a route-to="/todo"> "Todo"
 				<a route-to="/syntax"> "Syntax"
 				<a route-to="/code"> "Code"
+				<a route-to="/notes"> "Notes"
 			<section>
 				<home-page route="/">
 				<about-page route="/about">
 				<todo-page route="/todo">
 				<syntax-page route="/syntax">
 				<code-page route="/code">
+				<notes-page route="/notes">
