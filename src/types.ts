@@ -1,6 +1,4 @@
-export interface ITodo {
-  userId: number
-  id: number
+export interface Todo {
   title: string
   completed: boolean
 }

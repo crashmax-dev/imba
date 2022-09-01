@@ -1,23 +1,39 @@
-import type { ITodo } from '../types'
+import type { Todo } from '../types'
+
+def nanoid
+	Math.random().toString(16).slice(2)
 
 tag todo-page
-	prop page = 1
-	prop todos\ITodo[] = []
+	prop todos\Map<string, Todo[]> = new Map()
 
-	def loadTodo
-		const response = await window.fetch("https://jsonplaceholder.typicode.com/todos/{page}")
-		todos.push(await response.json())
-		page++
+	def addTodo()
+		const completed = $completed.checked
+		const title = $title.value
 
-	def deleteTodo(id\number)
-		todos = todos.filter do(todo) todo.id != id
+		if title != ''
+			todos.set(nanoid!, { title, completed })
+			$title.value = ''
+			$completed.checked = false
+			$title.focus()
+
+	def deleteTodo(id\string)
+		todos.delete(id)
+
+	def toggleTodo(id\string)
+		const { title, completed } = todos.get(id)
+		todos.set(id, { title, completed: !completed })
 
 	def unmount
-		todos.length = 0
+		todos.clear()
 
 	def render
 		<self>
-			<slot>
-			<button @click=(await loadTodo())> "Load"
-			for { id, title, completed } of todos
-				<h1 @click.prevent=deleteTodo(id)> "#{id} {title} [{completed ? 'x' : ' '}]"
+			<form @submit.prevent=addTodo()>
+				<input$title required>
+				<input$completed type="checkbox">
+				<button type="submit"> "Add"
+			for [id, { title, completed }] of todos
+				<div>
+					<span[cursor:pointer td:{completed ? 'line-through' : 'underline'}]> title
+					<input @change.prevent=toggleTodo(id) type="checkbox" checked=completed>
+					<button @click.prevent=deleteTodo(id)> "Delete"
